@@ -199,10 +199,10 @@ class MemoryGame:
             )
         }
         
-        # メニューに戻るボタン
+        # メニューに戻るボタン（画面右下に配置）
         self.menu_button = Button(
-            50, 50, 150, 40,
-            "メニューに戻る", GRAY, LIGHT_GRAY
+            BASE_WINDOW_WIDTH - 170, BASE_WINDOW_HEIGHT - 60, 150, 40,
+            "back", GRAY, LIGHT_GRAY
         )
         
     def get_icon_paths(self):
@@ -242,6 +242,12 @@ class MemoryGame:
         
         # ウィンドウサイズを更新
         self.screen = pygame.display.set_mode((self.window_width, self.window_height))
+        
+        # メニューボタンの位置を更新（画面右下）
+        self.menu_button = Button(
+            self.window_width - 170, self.window_height - 60, 150, 40,
+            "back", GRAY, LIGHT_GRAY
+        )
         
         # カードを初期化
         self.init_cards()
